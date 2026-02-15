@@ -241,8 +241,8 @@ export default function TrainPage() {
         // 3. Check what Stockfish's best move would have done
         if (bestMoveNotation && !playedBestMove) {
           const testChess = new Chess(beforeFen);
-          const bestFrom = bestMoveNotation.substring(0, 2);
-          const bestTo = bestMoveNotation.substring(2, 4);
+          const bestFrom = bestMoveNotation.substring(0, 2) as any;
+          const bestTo = bestMoveNotation.substring(2, 4) as any;
           const bestPromo = bestMoveNotation.length > 4 ? bestMoveNotation[4] : undefined;
 
           const targetPiece = testChess.get(bestTo);
@@ -752,7 +752,7 @@ export default function TrainPage() {
       )}
 
       {/* Game Over Modal */}
-      {isGameOver && (console.log('Rendering game over modal', { isGameOver, result }) || true) && (
+      {isGameOver && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
           <div className="bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-purple-500/50 rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl">
             <div className="text-center mb-6">

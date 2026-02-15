@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       // Fallback to rule-based analysis if no API key
       return NextResponse.json({
         feedback: generateFallbackFeedback(body),
-        category: getCategoryFromDiff(evaluationDiff),
+        category: getCategoryFromDiff(evalDiff || 0),
       });
     }
 
